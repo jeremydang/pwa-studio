@@ -12,12 +12,16 @@ export const name = 'user';
 const isSignedIn = () => !!storage.getItem('signin_token');
 
 const initialState = {
-    isSignedIn: isSignedIn(),
     currentUser: {
         email: '',
         firstname: '',
         lastname: '',
         addresses: []
+    },
+    isSignedIn: isSignedIn(),
+    forgotPassword: {
+        email: '',
+        isInProgress: false
     },
     signInError: {}
 };
@@ -57,6 +61,28 @@ const reducerMap = {
         return {
             ...state,
             createAccountError: {}
+        };
+    },
+    [actions.resetPassword.request]: (state, { payload }) => {
+        return {
+            ...state,
+            forgotPassword: {
+                email: payload,
+                isInProgress: true
+            }
+        };
+    },
+    // TODO: handle the reset password response from the API.
+    [actions.resetPassword.receive]: state => state,
+    [actions.completePasswordReset]: (state, { payload }) => {
+        const { email } = payload;
+
+        return {
+            ...state,
+            forgotPassword: {
+                email,
+                isInProgress: false
+            }
         };
     },
     [actions.signIn.reset]: () => {
