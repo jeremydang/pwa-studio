@@ -24,7 +24,7 @@ class AddressBlock extends Component {
             firstname,
             lastname,
             street = [],
-            country,
+            country_id,
             telephone,
             postcode,
             city,
@@ -43,7 +43,7 @@ class AddressBlock extends Component {
                 <div className={classes.otherAddressInformation}>
                     {city}, {region}, {postcode}
                 </div>
-                <div className={classes.country}>{country}</div>
+                <div className={classes.country}>{country_id}</div>
                 <div className={classes.telephone}>
                     T:
                     <a

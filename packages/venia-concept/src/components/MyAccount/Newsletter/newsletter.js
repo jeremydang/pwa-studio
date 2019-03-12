@@ -22,8 +22,7 @@ class Newsletter extends Component {
 
     get isUserSubscribed() {
         const { user } = this.props;
-        const { extension_attributes: { is_subscribed: isSubscribed } = {} } =
-            user || {};
+        const { is_subscribed: isSubscribed } = user || {};
 
         return isSubscribed;
     }

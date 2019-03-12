@@ -1,0 +1,27 @@
+query userDetail {
+    customer {
+        firstname,
+        lastname,
+        email,
+        default_billing,
+        default_shipping,
+        id,
+        is_subscribed,
+        addresses {
+            id,
+            customer_id,
+            street,
+            region {
+                region
+            },
+            city,
+            postcode,
+            country_id,
+            telephone
+            default_billing,
+            default_shipping,
+            firstname,
+            lastname
+        }
+    }
+}

@@ -1,25 +1,19 @@
-const getDefaultShippingAddress = ({
-    user: {
-        currentUser: { addresses }
-    }
-}) => addresses.find(({ default_shipping }) => default_shipping);
+const getDefaultShippingAddress = addresses =>
+    addresses.find(({ default_shipping }) => default_shipping);
 
-const getDefaultBillingAddress = ({
-    user: {
-        currentUser: { addresses }
-    }
-}) => addresses.find(({ default_billing }) => default_billing);
+const getDefaultBillingAddress = addresses =>
+    addresses.find(({ default_billing }) => default_billing);
 
 export const getCurrentUser = ({ user: { currentUser } }) => currentUser;
 
-export const getAccountAddressList = state => [
+export const getAccountAddressList = addresses => [
     {
         title: 'Default Billing Address',
-        address: getDefaultBillingAddress(state)
+        address: getDefaultBillingAddress(addresses)
     },
     {
         title: 'Default Shipping Address',
-        address: getDefaultShippingAddress(state)
+        address: getDefaultShippingAddress(addresses)
     }
 ];
 export const getUserInformation = ({ user: { currentUser } }) => {
