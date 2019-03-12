@@ -12,6 +12,6 @@ export default compose(
         state => ({
             user: getUserInformation(state)
         }),
-        { signOut, closeDrawer}
+        { signOut, closeDrawer }
     )
 )(MyAccountMenuPage);

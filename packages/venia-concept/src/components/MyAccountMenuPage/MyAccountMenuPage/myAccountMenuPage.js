@@ -35,7 +35,10 @@ class MyAccountMenuPage extends Component {
         return (
             <div className={classes.root}>
                 <Header user={user} onClose={onClose} />
-                <MyAccountMenu signOut={this.handleSignOut} closeDrawer={closeDrawer} />
+                <MyAccountMenu
+                    signOut={this.handleSignOut}
+                    closeDrawer={closeDrawer}
+                />
                 <div className={classes.logoContainer}>
                     <Logo height={32} />
                 </div>
