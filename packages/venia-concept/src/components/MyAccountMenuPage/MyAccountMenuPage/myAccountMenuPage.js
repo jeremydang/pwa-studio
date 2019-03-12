@@ -30,12 +30,12 @@ class MyAccountMenuPage extends Component {
     };
 
     render() {
-        const { classes, user, onClose } = this.props;
+        const { classes, user, onClose, closeDrawer } = this.props;
 
         return (
             <div className={classes.root}>
                 <Header user={user} onClose={onClose} />
-                <MyAccountMenu signOut={this.handleSignOut} />
+                <MyAccountMenu signOut={this.handleSignOut} closeDrawer={closeDrawer} />
                 <div className={classes.logoContainer}>
                     <Logo height={32} />
                 </div>
